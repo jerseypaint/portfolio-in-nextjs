@@ -9,6 +9,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 export default function Post({ post, preview }) {
     const router = useRouter()
   
+    if (router.isFallback) {
+      // your loading indicator
+      return <div>loading...</div>
+    }
+    
     if (!router.isFallback && !post) {
       return <ErrorPage statusCode={404} />
     }
