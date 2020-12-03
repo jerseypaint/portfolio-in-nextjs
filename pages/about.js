@@ -55,16 +55,16 @@ export default function About({post, preview}) {
                 <div>
                     <h2>Skills</h2>
                     <ul className={'grid grid-cols-2 mb-24'}>
-                        {post.skillsCollection.items.map(item => (
-                                <li className={'my-2'}>{item.name}</li>
+                        {post.skillsCollection.items.map((item, key)=> (
+                                <li className={'my-2'} key={item.name + '' + key}>{item.name}</li>
                             ))}
                     </ul>
                 </div>
                 <div>
                     <h2>Technologies</h2>
                     <ul className={'grid grid-cols-3 mb-24'}>
-                        {post.technologiesCollection.items.map(item => (
-                            <li className={'my-2'}>{item.name}</li>
+                        {post.technologiesCollection.items.map((item, key) => (
+                            <li className={'my-2'} key={item.name + '' + key}>{item.name}</li>
                         ))}
                     </ul>
                 </div>

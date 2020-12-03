@@ -37,7 +37,7 @@ export default function Post({ post, preview }) {
                       <div>
                           <ul className={'flex flex-wrap'}>
                           {post.technologiesCollection.items.map((item, key) => (
-                              <li className={'mr-1'}>{item.name}{key < post.technologiesCollection.items.length - 1 && <span className={'mx-2'}>/</span> }</li>
+                              <li className={'mr-1'} key={item.name + '' + key}>{item.name}{key < post.technologiesCollection.items.length - 1 && <span className={'mx-2'}>/</span> }</li>
                           ))}
                           </ul>
                       </div>
@@ -61,8 +61,8 @@ export default function Post({ post, preview }) {
         </div>
         <div className={'bg-brand-purple py-24'}>
           <div className={'mx-auto max-w-5xl px-4'}>
-              {post.imageGalleryCollection.items.map(item => (
-                <div className={''}>
+              {post.imageGalleryCollection.items.map((item, key) => (
+                <div key={item.name + '' + key}>
                   <div className={'relative mb-8 rounded-md'}>
                     <Image 
                       src={item.url}
