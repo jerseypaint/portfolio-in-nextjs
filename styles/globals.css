@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Poppins:wght@400;700&display=swap');
+
 html,
 body {
   padding: 0;
@@ -13,4 +19,33 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@layer components {
+
+  h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body, p {
+    font-family: 'Gothic A1', sans-serif;
+    @apply text-lg;
+  }
+  
+  h1 {
+    @apply font-bold text-5xl;
+  }
+
+  h2 {
+    @apply font-bold text-3xl;
+  }
+
+  .subtitle {
+    @apply text-brand-gray text-2xl lowercase;
+  }
+
+  .button {
+    min-width: 240px;
+    @apply inline-block rounded-full py-1 px-5 bg-brand-purple text-center text-white;
+  }
 }
