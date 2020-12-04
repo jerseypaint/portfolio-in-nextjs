@@ -13,7 +13,7 @@ export default function Post({ post, preview }) {
       // your loading indicator
       return <div>loading...</div>
     }
-    
+
     if (!router.isFallback && !post) {
       return <ErrorPage statusCode={404} />
     }
@@ -65,7 +65,7 @@ export default function Post({ post, preview }) {
             {documentToReactComponents(post.introduction.json, options)}
         </div>
         <div className={'bg-brand-purple py-24'}>
-          <div className={'mx-auto max-w-5xl px-4'}>
+          <div className={'mx-auto max-w-5xl px-4 text-center'}>
               {post.imageGalleryCollection.items.map((item, key) => (
                 <div key={item.name + '' + key}>
                   <div className={'relative mb-8 rounded-md'}>
@@ -73,7 +73,7 @@ export default function Post({ post, preview }) {
                       src={item.url}
                       width={item.width}
                       height={item.height}
-                      layout={'responsive'}
+                      layout={'intrinsic'}
                       alt={'image'}
                       quality={'99'}
                       className={'rounded-md'}
