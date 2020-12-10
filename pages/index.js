@@ -63,7 +63,7 @@ export default function About({post, preview, portfolio}) {
                                     </SwiperSlide>
                                 ))}
                                 <SwiperSlide>
-                                    <div className={`relative mb-8 lg:pb-2/3 lg:mb-0 overflow-hidden`}>
+                                    <div className={`relative pt-full lg:pt-2/3 lg:absolute h-full w-full rounded-md overflow-hidden`}>
                                         <div className={`bg-gray-100 flex justify-center items-center absolute top-0 left-0 right-0 bottom-0 h-full w-full p-4 md:p-12`}>
                                             <Link href={`/portfolio`} passHref>
                                                 <a href={`/portfolio`} className={`button`}>See more work</a>

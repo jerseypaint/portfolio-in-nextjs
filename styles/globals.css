@@ -84,7 +84,7 @@ a {
     cursor: grab;
   }
 
-  .swiper-pagination-bullet-active {
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
     @apply bg-brand-purple;
   }
   .social-icon:hover {
