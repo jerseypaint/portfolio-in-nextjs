@@ -61,7 +61,7 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
                                     <a href={`/portfolio/${slug}`} className={`button border-2 border-white bg-transparent hover:bg-white hover:text-brand-gray`}>Read More</a>
                                 </Link>
                             </div>
-                            <div className={`absolute top-2 right-2 h-6 w-6 lg:h-8 lg:w-8`}>
+                            <div className={`lg:hidden absolute top-2 right-2 h-6 w-6 lg:h-8 lg:w-8`}>
                                 <button onClick={closeOnClick}><Close color={`#fff`} /></button>
                             </div>
                         </div>
