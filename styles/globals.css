@@ -41,12 +41,18 @@ a {
   }
 
   .subtitle {
-    @apply text-brand-gray text-2xl lowercase;
+    @apply text-brand-gray text-2xl;
+  }
+
+  a:not(.button) {
+    transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+    @apply transition-colors hover:text-brand-purple;
   }
 
   .button {
     min-width: 240px;
-    @apply inline-block rounded-full py-1 px-5 bg-brand-purple text-center text-white;
+    transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+    @apply inline-block rounded-full py-1 px-5 bg-brand-purple text-center text-white transition-colors hover:bg-brand-gray;
   }
 
   .button-desc {
@@ -66,8 +72,8 @@ a {
   }
 
   .minus {
-    @apply block absolute top-0 right-0 bottom-0 left-0 w-4 bg-white;
     height: 2px;
+    @apply block absolute top-0 right-0 bottom-0 left-0 w-4 bg-white;
   }
 
   .minus.rotate90 {
@@ -80,5 +86,8 @@ a {
 
   .swiper-pagination-bullet-active {
     @apply bg-brand-purple;
+  }
+  .social-icon:hover {
+    filter: invert(58%) sepia(87%) saturate(3173%) hue-rotate(214deg) brightness(102%) contrast(104%);
   }
 }

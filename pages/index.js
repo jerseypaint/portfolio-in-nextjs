@@ -43,8 +43,8 @@ export default function About({post, preview, portfolio}) {
                         <Image className={'rounded-full'} src={post.me.url} alt="a headshot photo of me" height={'120'} width={'120'} />
                     </div>
                     <div className={'my-8'}>
-                    <button className={'button block mb-4'} onClick={copyEmail}>{copied ? `Copied!` : post.email}</button>
-                        <a href={'https://www.linkedin.com/in/aarondielmann/'} className={'block ml-2'} target={`_blank`}><img src={post.socials.icon.url} className={'h-6'} /></a>
+                    <button className={'button block mb-4'} onClick={copyEmail} name={`copy email button`} type={`button`} value={copied ? `Copied!` : post.email}>{copied ? `Copied!` : post.email}</button>
+                        <a href={'https://www.linkedin.com/in/aarondielmann/'} className={'block ml-2'} target={`_blank`}><img src={post.socials.icon.url} className={'social-icon h-6'} /></a>
                 </div>
                 </div>
                 <div className={'relative'}>
@@ -62,6 +62,15 @@ export default function About({post, preview, portfolio}) {
                                         <PortfolioItem imageUrl={item.coverImage.url} title={item.title} description={item.description} slug={item.slug} key={`${item.title}-${key}-${key}`} />
                                     </SwiperSlide>
                                 ))}
+                                <SwiperSlide>
+                                    <div className={`relative mb-8 lg:pb-2/3 lg:mb-0 overflow-hidden`}>
+                                        <div className={`bg-gray-100 flex justify-center items-center absolute top-0 left-0 right-0 bottom-0 h-full w-full p-4 md:p-12`}>
+                                            <Link href={`/portfolio`} passHref>
+                                                <a href={`/portfolio`} className={`button`}>See more work</a>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
                         </Swiper>
                     </div>
                 </div>

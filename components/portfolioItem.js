@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChatBubble, Dots, RightArrow } from "../components/icons"
+import { Close } from "../components/icons"
 
 export default function PortfolioItem({imageUrl, title, description, slug}) {
     const [reveal, setReveal] = useState(false)
@@ -27,6 +27,10 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
         setStay(!stay)
     }
 
+    const closeOnClick = (event) => {
+        setStay(false)
+    }
+
     const revealOnMouseEnter = (event) => {
         setReveal(true)
     }
@@ -36,7 +40,7 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
     }
     
     return (
-        <div className={`relative mb-8 lg:pb-2/3 lg:mb-0 overflow-hidden`} reveal={false} stay={false} onMouseEnter={revealOnMouseEnter} onMouseLeave={hideOnMouseLeave} onClick={stayOnClick}>
+        <div className={`relative mb-8 lg:pb-2/3 lg:mb-0 overflow-hidden`} onMouseEnter={revealOnMouseEnter} onMouseLeave={hideOnMouseLeave} onClick={stayOnClick}>
                 <div className={`relative pt-full lg:pt-2/3 lg:absolute h-full w-full object-cover`}>
                     <Image
                         src={imageUrl}
@@ -54,8 +58,11 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
                             </div>
                             <div className={`text-center w-full mt-2`}>
                                 <Link href={`/portfolio/${slug}`} passHref>
-                                    <a href={`/portfolio/${slug}`} className={`button border-2 border-white bg-transparent`}>Read More</a>
+                                    <a href={`/portfolio/${slug}`} className={`button border-2 border-white bg-transparent hover:bg-white hover:text-brand-gray`}>Read More</a>
                                 </Link>
+                            </div>
+                            <div className={`absolute top-2 right-2 h-6 w-6 lg:h-8 lg:w-8`}>
+                                <button onClick={closeOnClick}><Close color={`#fff`} /></button>
                             </div>
                         </div>
                 </div>
