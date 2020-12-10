@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Footer({page}) {
     return (
         <footer>
-            <div className={'flex justify-between py-3 px-4 border-t'}>
+            <div className={'lg:flex justify-between py-3 px-4 border-t'}>
                 <div className={`font-bold`}>
                     <Link href={'/'}>Aaron Dielmann</Link>
                 </div>
