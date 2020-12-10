@@ -69,6 +69,16 @@ technologiesCollection {
       name
     }
   }
+  portfolioCollection {
+    items {
+      slug
+      title
+      coverImage {
+          url
+      }
+      description
+    }
+  }
 `
 
 async function fetchGraphQL(query, preview = false) {
@@ -173,5 +183,20 @@ export async function getPortfolioItem(slug, preview) {
     )
     return {
         post: extractAboutPage(entry),
+        portfolio: extractPortfolio(entry)
       }
+  }
+
+  export async function getPortfolioForAbout(preview) {
+    const entries = await fetchGraphQL(
+      `query {
+       portfolioItemCollection(preview: ${preview ? 'true' : 'false'}, limit: 3) {
+          items {
+            ${HOME_FIELDS}
+          }
+        }
+      }`,
+      preview
+    )
+    return extractPortfolio(entries)
   }

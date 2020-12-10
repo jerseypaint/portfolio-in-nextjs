@@ -29,15 +29,15 @@ a {
 
   body, p {
     font-family: 'Gothic A1', sans-serif;
-    @apply md:text-lg;
+    @apply lg:text-lg;
   }
   
   h1 {
-    @apply font-bold text-5xl;
+    @apply font-bold text-5xl mb-4;
   }
 
   h2 {
-    @apply font-bold text-3xl;
+    @apply font-bold text-3xl mb-4;
   }
 
   .subtitle {
@@ -53,12 +53,16 @@ a {
    @apply absolute top-2 left-2 rounded-full h-10 w-10 p-1 text-center z-10;
   }
 
+  .desc {
+    transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+  }
+
   .desc.reveal {
-    @apply border-2 border-brand-gray p-12 h-auto;
+    @apply left-0;
   }
 
   .desc.stay {
-    @apply border-2 border-brand-gray p-12 h-auto;
+    @apply left-0;
   }
 
   .minus {
@@ -70,4 +74,7 @@ a {
     transform: rotate(90deg);
   }
 
+  .swiper-pagination-bullet-active {
+    @apply bg-brand-purple;
+  }
 }

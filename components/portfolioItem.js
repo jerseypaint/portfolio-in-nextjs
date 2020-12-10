@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChatBubble, RightArrow } from "../components/icons"
+import { ChatBubble, Dots, RightArrow } from "../components/icons"
 
 export default function PortfolioItem({imageUrl, title, description, slug}) {
-    const [reveal, setReveal] = useState(false);
-    const [stay, setStay] = useState(false);
+    const [reveal, setReveal] = useState(false)
+    const [stay, setStay] = useState(false)
 
     useEffect(() => {
         const desc = document.querySelector(`.desc.${slug}`)
@@ -23,7 +23,7 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
         }
       }, [reveal, stay])
 
-      const revealOnClick = (event) => {
+      const stayOnClick = (event) => {
         setStay(!stay)
     }
 
@@ -36,26 +36,8 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
     }
     
     return (
-        <div className={`relative mb-8 lg:pb-2/3 lg:mb-0`} reveal={reveal} stay={stay}>
-
-        {(reveal || stay) ? 
-            <Link href={`/portfolio/${slug}`} passHref>
-                <a href={`/portfolio/${slug}`} className={`block button-desc bg-brand-purple`} onClick={revealOnClick} onMouseEnter={revealOnMouseEnter} onMouseLeave={hideOnMouseLeave}>
-                    <span>
-                    {(reveal || stay) ? <RightArrow color={`#fff`} />: <ChatBubble color={`#fff`} />}
-                    </span>
-                </a>
-            </Link>
-            :
-            <button className={`button-desc bg-brand-gray`} onClick={revealOnClick} onMouseEnter={revealOnMouseEnter} onMouseLeave={hideOnMouseLeave}>
-                <span>
-                    {(reveal || stay) ? <RightArrow color={`#fff`} />: <ChatBubble color={`#fff`} />}
-                </span>
-            </button>
-         }
-            <Link href={`/portfolio/${slug}`} passHref>
-                <a href={`/portfolio/${slug}`} className={`block`}>
-                <div className={`relative pt-2/3 lg:absolute h-full w-full object-cover`}>
+        <div className={`relative mb-8 lg:pb-2/3 lg:mb-0 overflow-hidden`} reveal={false} stay={false} onMouseEnter={revealOnMouseEnter} onMouseLeave={hideOnMouseLeave} onClick={stayOnClick}>
+                <div className={`relative pt-full lg:pt-2/3 lg:absolute h-full w-full object-cover cursor-pointer`}>
                     <Image
                         src={imageUrl}
                         alt="placeholder"
@@ -64,12 +46,20 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
                         className={`rounded-md`}
                     />
                 </div>
-                <div className={`desc ${slug} absolute top-0 left-0 w-full rounded-md bg-white h-0 overflow-hidden`}>
-                        <h2>{title}</h2>
-                        <p>{description}</p>
-                    </div>
-                </a>
-            </Link>
+                <div>
+                    <div className={`desc ${slug} absolute top-0 left-full right-0 bottom-0 h-full w-full p-4 md:p-12 flex flex-col justify-between rounded-md bg-brand-gray text-white overflow-hidden transition-height duration-500 translate-x-64`}>
+                            <div>
+                                <h2 className={`mb-2`}>{title}</h2>
+                                <p>{description}</p>
+                            </div>
+                            <div className={`text-center w-full mt-2`}>
+                                <Link href={`/portfolio/${slug}`} passHref>
+                                    <a href={`/portfolio/${slug}`} className={`button border-2 border-white bg-transparent`}>Read More</a>
+                                </Link>
+                            </div>
+                        </div>
+                </div>
+
         </div>
     )
   }
