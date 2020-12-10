@@ -37,7 +37,7 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
     
     return (
         <div className={`relative mb-8 lg:pb-2/3 lg:mb-0 overflow-hidden`} reveal={false} stay={false} onMouseEnter={revealOnMouseEnter} onMouseLeave={hideOnMouseLeave} onClick={stayOnClick}>
-                <div className={`relative pt-full lg:pt-2/3 lg:absolute h-full w-full object-cover cursor-pointer`}>
+                <div className={`relative pt-full lg:pt-2/3 lg:absolute h-full w-full object-cover`}>
                     <Image
                         src={imageUrl}
                         alt="placeholder"

@@ -74,6 +74,10 @@ a {
     transform: rotate(90deg);
   }
 
+  .swiper-slide {
+    cursor: grab;
+  }
+
   .swiper-pagination-bullet-active {
     @apply bg-brand-purple;
   }

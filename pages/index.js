@@ -44,7 +44,7 @@ export default function About({post, preview, portfolio}) {
                     </div>
                     <div className={'my-8'}>
                     <button className={'button block mb-4'} onClick={copyEmail}>{copied ? `Copied!` : post.email}</button>
-                    <a href={'https://www.linkedin.com/in/aarondielmann/'} className={'block ml-2'} target={`_blank`}><img src={post.socials.icon.url} className={'h-6'} /></a>
+                        <a href={'https://www.linkedin.com/in/aarondielmann/'} className={'block ml-2'} target={`_blank`}><img src={post.socials.icon.url} className={'h-6'} /></a>
                 </div>
                 </div>
                 <div className={'relative'}>
