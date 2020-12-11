@@ -47,7 +47,7 @@ export default function PortfolioItem({imageUrl, title, description, slug}) {
                         alt="placeholder"
                         layout="fill"
                         objectFit={`cover`}
-                        className={`rounded-md`}
+                        className={`rounded-md bg-brand-gray`}
                     />
                 </div>
                 <div>

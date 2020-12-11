@@ -54,7 +54,7 @@ export default function Post({ post, preview }) {
                               alt="placeholder"
                               layout={'fill'}
                               objectFit={'cover'}
-                              className={'rounded-md'}
+                              className={'rounded-md bg-brand-gray'}
                           />
                       </div>
                   </div>
@@ -71,14 +71,14 @@ export default function Post({ post, preview }) {
                 const heightNew = ((1024 / item.width) * item.height)
                 return (
                 <div key={item.name + '' + key}>
-                  <div className={'relative mb-8 rounded-md'}>                    
+                  <div className={'relative mb-8 rounded-md'}>        
                     <Image 
                       src={item.url}
                       width={widthNew}
                       height={heightNew}
                       layout={'intrinsic'}
                       alt={item.description}
-                      className={'rounded-md'}
+                      className={'rounded-md bg-brand-gray'}
                       />
                   </div>
                 </div>
