@@ -66,21 +66,23 @@ export default function Post({ post, preview }) {
         </div>
         <div className={'bg-brand-purple py-24'}>
           <div className={'mx-auto max-w-5xl px-4 text-center'}>
-              {post.imageGalleryCollection.items.map((item, key) => (
+              {post.imageGalleryCollection.items.map((item, key) =>{ 
+                const widthNew =  ((1024 / item.width) * item.width)
+                const heightNew = ((1024 / item.width) * item.height)
+                return (
                 <div key={item.name + '' + key}>
-                  <div className={'relative mb-8 rounded-md'}>
+                  <div className={'relative mb-8 rounded-md'}>                    
                     <Image 
                       src={item.url}
-                      width={item.width}
-                      height={item.height}
+                      width={widthNew}
+                      height={heightNew}
                       layout={'intrinsic'}
-                      alt={'image'}
-                      quality={'99'}
+                      alt={item.description}
                       className={'rounded-md'}
                       />
                   </div>
                 </div>
-              ))}
+              )})}
           </div>
         </div>
 
